@@ -1,6 +1,6 @@
 {
-  "name": "d3-node",
-  "version": "3.0.0",
+  "name": "@lionkeng/d3-node",
+  "version": "3.1.0",
   "description": "Server-side D3 with ease",
   "main": "src/index.js",
   "type": "module",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/lionkeng/d3-node.git"
+    "url": "https://github.com/lionkeng/d3-node.git"
   },
   "keywords": [
     "d3",
@@ -41,7 +41,7 @@
     "topojson": "^3.0.2"
   },
   "bugs": {
-    "url": "https://github.com/d3-node/d3-node/issues"
+    "url": "https://github.com/lionkeng/d3-node/issues"
   },
-  "homepage": "https://github.com/d3-node/d3-node"
+  "homepage": "https://github.com/lionkeng/d3-node"
 }
