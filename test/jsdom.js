@@ -1,8 +1,7 @@
 // mocha test/basic -R List
 /* global describe, it */
-
-import { equal } from 'assert'
-import D3Node from '../src/index.js'
+const assert = require('assert')
+const D3Node = require('../src')
 
 describe('jsDom features', function () {
   const d3nA = new D3Node({ container: '<!DOCTYPE html>test A' })
@@ -10,15 +9,15 @@ describe('jsDom features', function () {
   const d3nC = new D3Node()
 
   it('Test C: should serializeDocument()', function () {
-    equal(d3nC.html(), '<html><head></head><body></body></html>')
+    assert.equal(d3nC.html(), '<html><head></head><body></body></html>')
   })
 
   it('Test B: should serializeDocument()', function () {
-    equal(d3nB.html(), '<html><head></head><body>test B</body></html>')
+    assert.equal(d3nB.html(), '<html><head></head><body>test B</body></html>')
   })
 
   it('Test A: should serializeDocument()', function () {
-    equal(
+    assert.equal(
       d3nA.html(),
       '<!DOCTYPE html><html><head></head><body>test A</body></html>'
     )

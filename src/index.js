@@ -1,12 +1,10 @@
-import { JSDOM } from 'jsdom'
-import * as d3 from 'd3'
-import serialize from 'w3c-xmlserializer'
-// const { JSDOM } = require('jsdom')
-// const d3 = require('d3')
+const { JSDOM } = require('jsdom')
+const d3 = require('d3')
+const serialize = require('w3c-xmlserializer')
 
-// module.exports.d3 = d3
-// module.exports.JSDOM = JSDOM
-export { d3, JSDOM }
+module.exports.d3 = d3
+module.exports.JSDOM = JSDOM
+module.exports.D3Node = D3Node
 
 function fixLtGt(text) {
   text = text.replace(/&lt;/g, '<')
@@ -14,7 +12,7 @@ function fixLtGt(text) {
   return text
 }
 
-export default function D3Node({
+function D3Node({
   d3Module = d3,
   selector = '',
   container = '',

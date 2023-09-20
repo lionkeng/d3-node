@@ -1,8 +1,8 @@
 // mocha test/basic -R List
 /* global describe, it */
-
-import { equal } from 'assert'
-import D3Node, { d3 } from '../src/index.js'
+const assert = require('assert')
+const D3Node = require('../src')
+const d3 = D3Node.d3
 
 describe('Using d3 functions', function () {
   const d3n = new D3Node()
@@ -12,12 +12,12 @@ describe('Using d3 functions', function () {
 
   it('should have correct max', function () {
     const maxNum = d3.max([1, 2, 4])
-    equal(maxNum, 4)
+    assert.equal(maxNum, 4)
   })
 
   it('should not have svg tag', function () {
     const svg = d3n.svgString()
-    equal(svg, '')
+    assert.equal(svg, '')
   })
 })
 

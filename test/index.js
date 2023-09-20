@@ -1,33 +1,32 @@
 // mocha test -R List
 /* global describe, it */
-
-import { equal } from 'assert'
-import D3Node from '../src/index.js'
-import { select } from 'd3'
+const assert = require('assert')
+const D3Node = require('../src')
+const d3 = D3Node.d3
 
 describe('Append nothing', function () {
   const d3n = new D3Node()
   it('should have tags default empty', function () {
     const expected = '<html><head></head><body></body></html>'
     const actual = d3n.html()
-    equal(actual, expected)
+    assert.equal(actual, expected)
   })
 })
 
 describe('Append span (defaults)', function () {
   const d3n = new D3Node()
   const document = d3n.document
-  select(document.body).append('span')
+  d3.select(document.body).append('span')
 
   it('should have span tag', function () {
     const expected = '<html><head></head><body><span></span></body></html>'
     const actual = d3n.html()
-    equal(actual, expected)
+    assert.equal(actual, expected)
   })
 
   it('should not have svg tag', function () {
     const svg = d3n.svgString()
-    equal(svg, '')
+    assert.equal(svg, '')
   })
 })
 
@@ -37,17 +36,17 @@ describe('Append span (w/ container)', function () {
     container: '<div id="container"><div id="chart"></div></div>',
   }
   const d3n = new D3Node(options)
-  select(d3n.document.querySelector('#chart')).append('span') // or d3n.d3Element.append('span')
+  d3.select(d3n.document.querySelector('#chart')).append('span') // or d3n.d3Element.append('span')
 
   it('should have span tag', function () {
     const expected =
       '<html><head></head><body><div id="container"><div id="chart"><span></span></div></div></body></html>'
     const actual = d3n.html()
-    equal(actual, expected)
+    assert.equal(actual, expected)
   })
 
   it('should return chart html by selector', function () {
-    equal(d3n.chartHTML(), '<div id="chart"><span></span></div>')
+    assert.equal(d3n.chartHTML(), '<div id="chart"><span></span></div>')
   })
 })
 
